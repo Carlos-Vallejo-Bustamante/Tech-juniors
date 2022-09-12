@@ -1,12 +1,12 @@
 const router = require("express").Router();
 const AxiosJuniors = require('../services/axios.services')
 const axiosJob = new AxiosJuniors();
-// const axios = require('axios');
+const JobModel = require('../models/Job.model')
 
 
 
 /* GET Jobs page */
-router.get("/", (req, res, next) => {
+router.get("/jobs", (req, res, next) => {
     axiosJob
         .getJobs()
         .then((allJobs) => {
@@ -16,11 +16,11 @@ router.get("/", (req, res, next) => {
         .catch((error) => next(error));
 });
 
-router.get('/create', (req, res, next) => {
+router.get('/jobs/create', (req, res, next) => {
     res.render('jobs/create-job')
 })
 
-router.get('/:jobId', (req, res, next) => {
+router.get('/jobs/:jobId', (req, res, next) => {
     axiosJob
         .getJob(req.params.jobId)
         .then((job) => {
@@ -33,10 +33,11 @@ router.get('/:jobId', (req, res, next) => {
 
 router.post('/jobs/create', (req, res, next) => {
     const { jobTitle, employedName, locationName, salaryType, minimunSalary, maximunSalary, currency, fullTime, partTime, contractType, jobDescription, jobUrl } = req.body;
-    axiosCharacter
-        .createJob({ jobTitle, employedName, locationName, salaryType, minimunSalary, maximunSalary, currency, fullTime, partTime, contractType, jobDescription, jobUrl })
+    console.log(req.body);
+    JobModel
+        .create({ jobTitle, employedName, locationName, salaryType, minimunSalary, maximunSalary, currency, fullTime, partTime, contractType, jobDescription, jobUrl })
         .then((job) => {
-            res.redirect('/')
+            res.redirect('/jobs')
         })
         .catch((error) => next(error));
 })
