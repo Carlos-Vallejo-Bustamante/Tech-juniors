@@ -18,19 +18,19 @@ class AxiosJuniors {
         return this.axios.get(`/jobs/${jobId}`).then((res) => res.data);
     }
 
-    createJob({ jobTitle, employedName, locationName, salryType, minimunSalary, maximunSalary, currency, fullTime, partTime, contractType, jobDescription, jobUrl }) {
+    // createJob({ jobTitle, employedName, locationName, salaryType, minimunSalary, maximunSalary, currency, fullTime, partTime, contractType, jobDescription, jobUrl }) {
 
-        return this.axios
-            .post('/Jobs', { jobTitle, employedName, locationName, salaryType, minimunSalary, maximunSalary, currency, fullTime, partTime, contractType, jobDescription, jobUrl })
-            .then((res) => res.data);
-    }
+    //     return this.axios
+    //         .post('/jobs/create', { jobTitle, employedName, locationName, salaryType, minimunSalary, maximunSalary, currency, fullTime, partTime, contractType, jobDescription, jobUrl })
+    //         .then((res) => res.data);
+    // }
 
     editJob(id, body) {
-        return this.axios.put(`/Jobs/${id}`, body).then((res) => res.data);
+        return this.axios.put(`/jobs/${id}`, body).then((res) => res.data);
     }
 
     deleteJob(id) {
-        return this.axios.delete(`/Jobs/${id}`).then((res) => res.data);
+        return this.axios.delete(`/jobs/${id}`).then((res) => res.data);
     }
 }
 
