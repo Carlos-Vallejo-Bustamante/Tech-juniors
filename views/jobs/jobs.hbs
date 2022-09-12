@@ -4,16 +4,14 @@
     <div class="row">
         {{#each myJobs}}
         <div class="col-md-4 mb-3">
-            <div class="card" style="width: 26rem;">
+            <div class="card" style="width: 23rem;">
                 <img src="images/jobs.jpg" class="card-img-top">
                 <div class="card-body">
-                    <h2 class="card-title h6">{{title}}</h2>
-                    <p class="card-text"><strong>Company</strong>: {{company_name}}</p>
-                    <p class="card-text"><strong>Location</strong>: {{location}}</p>
-                    {{#if remote}}
-                    <p class="card-text"><strong>Remote</strong>: remote working</p>
-                    {{/if}}
-                    <a href="/jobs/{{slug}}" class="btn btn-dark text-white"><i class="fas fa-link"></i>More
+                    <h2 class="card-title h6"><strong>Tech Profile</strong>: {{jobTitle}}</h2>
+                    <p class="card-text"><strong>Company</strong>: {{employerName}}</p>
+                    <p class="card-text"><strong>Location</strong>: {{locationName}}</p>
+                    <p class="card-text"><strong>Expiration</strong>: {{expirationDate}}</p>
+                    <a href="/jobs/{{jobId}}" class="btn btn-dark text-white"><i class="fas fa-link"></i>More
                         details</a>
                 </div>
             </div>
