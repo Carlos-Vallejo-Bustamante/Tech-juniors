@@ -1,1 +1,24 @@
-<h1>Empresa - {{job.title}}</h1>
+<h1>{{jobTitle}}</h1>
+
+<h2>Company: {{employedName}}</h2>
+
+<h3>Tech Profile: {{jobTitle}}</h3>
+
+<h3>Location: {{locationName}}</h3>
+
+<h3>{{salryType}} Salary: {{minimunSalary}} | {{maximunSalary}} {{currency}}</h3>
+
+{{#if fullTime}}
+<h3>Presential : full time</h3>
+{{/if}}
+
+{{#if partTime}}
+<h3>Presential : part time</h3>
+{{/if}}
+
+<h3>Contract Type: {{contractType}}</h3>
+<p>Description:</p>{{{jobDescription}}}
+
+
+
+<a href="{{jobUrl}}">Apply Now</a>

@@ -9,25 +9,38 @@ const axiosJob = new AxiosJuniors();
 router.get("/", (req, res, next) => {
     axiosJob
         .getJobs()
-        // .get('https://arbeitnow.com/api/job-board-api')
         .then((allJobs) => {
-            console.log(allJobs.data);
-            const myJobs = allJobs.data
-            // const title = allJobs.data.data replace('(m/w/d) ', '')
+            const myJobs = allJobs.results
             res.render('jobs/jobs', { myJobs })
         })
         .catch((error) => next(error));
 });
 
-router.get('/:slug', (req, res, next) => {
+router.get('/create', (req, res, next) => {
+    res.render('jobs/create-job')
+})
+
+router.get('/:jobId', (req, res, next) => {
     axiosJob
-        .getJob(req.params.slug)
+        .getJob(req.params.jobId)
         .then((job) => {
-            console.log('PRUEBA ---->>>', job);
-            res.render('jobs/details-job', { job })
+            res.render('jobs/details-job', job)
         })
         .catch((err) => next(err));
 })
+
+/* POST Jobs page */
+
+router.post('/jobs/create', (req, res, next) => {
+    const { jobTitle, employedName, locationName, salaryType, minimunSalary, maximunSalary, currency, fullTime, partTime, contractType, jobDescription, jobUrl } = req.body;
+    axiosCharacter
+        .createJob({ jobTitle, employedName, locationName, salaryType, minimunSalary, maximunSalary, currency, fullTime, partTime, contractType, jobDescription, jobUrl })
+        .then((job) => {
+            res.redirect('/')
+        })
+        .catch((error) => next(error));
+})
+
 
 
 module.exports = router;
