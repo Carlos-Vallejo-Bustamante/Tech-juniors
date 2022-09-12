@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Create Job</h1>
+            <hr>
+            <form action="/jobs/create" method="POST">
+                <div class="mb-3 row flex-column">
+                    <div class="col">
+                        <label for="emailInput" class="form-label">Job title</label>
+                        <input type="text" class="form-control" id="emailInput" name="jobTitle">
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                    <div class="col mt-3">
+                        <label for="emailInput" class="form-label">Company</label>
+                        <input type="number" step="any" class="form-control" id="emailInput" name="employedName">
+                        <label for="emailInput" class="form-label">Location</label>
+                        <input type="number" step="any" class="form-control" id="emailInput" name="locationName">
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+                <div class="mb-3 row flex-column">
+                    <div class="col">
+                        <label for="emailInput" class="form-label">Salary Type:</label>
+                        <input type="text" class="form-control" id="emailInput" name="salaryType">
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+                <div class="mb-3 row flex-column">
+                    <div class="col mt-3">
+                        <label for="emailInput" class="form-label">Minimun Salary</label>
+                        <input type="number" step="any" class="form-control" id="emailInput" name="minimunSalary">
+                        <label for="emailInput" class="form-label">Maximun Salary</label>
+                        <input type="number" step="any" class="form-control" id="emailInput" name="maximunSalary">
+                        <label for="emailInput" class="form-label">Currency</label>
+                        <select class="form-select" name="currency">
+                            <option selected>Select One</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="USD">USD</option>
+                        </select>
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+                <div class="mb-3 row flex-column">
+                    <div class="col mt-3">
+                        <label for="emailInput" class="form-label">Full Time:</label>
+                        <select class="form-select" name="fullTime">
+                            <option selected>Select One</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                        <label for="emailInput" class="form-label">Part Time:</label>
+                        <select class="form-select" name="partTime">
+                            <option selected>Select One</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3 row flex-column">
+                    <div class="col">
+                        <label for="emailInput" class="form-label">Contract Type</label>
+                        <input type="text" class="form-control" id="emailInput" name="contractType">
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+                <div class="mb-3 row flex-column">
+                    <div class="col">
+                        <label for="emailInput" class="form-label">Description</label>
+                        <textarea type="text" class="form-control" id="emailInput" name="jobDescription">
+                        <div class="form-text">Requerido.</div>
+                    </div>
+                </div>
+                <div class="mb-3 row flex-column">
+                    <div class="col">
+                        <label for="emailInput" class="form-label">Offer Link</label>
+                        <input type="text" class="form-control" id="emailInput" name="jobUrl">
+                        <div class="form-text">Your offer URL.</div>
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block mb-5">Create Offer Job</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
