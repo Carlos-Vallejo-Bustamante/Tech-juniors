@@ -7,10 +7,4 @@ router.get("/", (req, res, next) => {
   res.sendStatus(200);
 });
 
-router.get("/oauth", (req, res, next) => {
-  console.log(req.params);
-  console.log(req.query);
-  res.sendStatus(200);
-});
-
 module.exports = router;
