@@ -28,6 +28,18 @@ const projectName = "Tech-juniors";
 app.locals.appTitle = `${capitalized(projectName)}`;
 
 // 👇 Start handling routes here
+app.use((req, res, next) => {
+    if (req.session.user) {
+        app.locals.nav = req.session.user.role
+        console.log(app.locals.nav);
+        next();
+        return;
+    } else {
+        app.locals.nav = null
+    }
+    next();
+})
+
 const index = require("./routes/index.routes");
 app.use("/", index);
 

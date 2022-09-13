@@ -2,7 +2,7 @@ const router = require('express').Router();
 const UserModel = require('../models/User.model');
 const { roleValidation } = require('../middleware/roles.middleware');
 const { USER, COMPANY } = require('../const/user.const');
-
+const isLogedin = require('../middleware/is_logedin.middleware');
 
 //--------- GET -------
 // Create new user
@@ -15,8 +15,13 @@ router.get('/login', (req, res) => {
     res.render('auth/login');
 });
 
+router.get('/logout', (req, res, next) => {
+    req.session.destroy();
+    res.redirect('/')
+})
+
 // Profile
-router.get('/profile', (req, res) => {
+router.get('/profile', isLogedin, (req, res) => {
     const user = req.session.user
     res.render('auth/profile', user);
 });

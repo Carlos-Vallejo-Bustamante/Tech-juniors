@@ -15,7 +15,6 @@
 <body>
    <div class="container">
       <div class="row">
-         <video src="https://carontestudio.com/img/f4.mp4" autoplay="true" muted="true" loop="true"></video>
          <div>
             <div class="container">
                <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
@@ -33,6 +32,22 @@
                         <li class="nav-item">
                            <a class="nav-link text-white" href="/jobs/create">Create Job</a>
                         </li>
+                        {{#if nav }}
+                        <li class="nav-item">
+                           <a class="nav-link text-white" href="/auth/profile">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link text-white" href="/auth/logout">Log out</a>
+                        </li>
+                        {{/if}}
+                        <li class="nav-item">
+                           {{#unless nav }}
+                           <a class="nav-link text-white" href="/auth/login">Log in</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link text-white" href="/auth/signup">Sign up</a>
+                        </li>
+                        {{/unless}}
                      </ul>
                   </div>
                </nav>
