@@ -1,11 +1,26 @@
-<h1>Jobs</h1>
-
 <div class="container mx-auto mt-4">
+    <h1>Jobs</h1>
     <div class="row">
+        <h2>Promoted Jobs</h2>
+        {{#each localJobs}}
+        <div class="col-md-4 mb-3">
+            <div class="card" style="width: 23rem;">
+                {{!-- <img src="images/jobs.jpg" class="card-img-top"> --}}
+                <div class="card-body">
+                    <h2 class="card-title h6"><strong>Tech Profile</strong>: {{jobTitle}}</h2>
+                    <p class="card-text"><strong>Company</strong>: {{employerName}}</p>
+                    <p class="card-text"><strong>Location</strong>: {{locationName}}</p>
+                    <p class="card-text"><strong>Expiration</strong>: {{expirationDate}}</p>
+                    <a href="/jobs/{{_id}}" class="btn btn-dark text-white"><i class="fas fa-link"></i>More
+                        details</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
         {{#each myJobs}}
         <div class="col-md-4 mb-3">
             <div class="card" style="width: 23rem;">
-                <img src="images/jobs.jpg" class="card-img-top">
+                {{!-- <img src="images/jobs.jpg" class="card-img-top"> --}}
                 <div class="card-body">
                     <h2 class="card-title h6"><strong>Tech Profile</strong>: {{jobTitle}}</h2>
                     <p class="card-text"><strong>Company</strong>: {{employerName}}</p>

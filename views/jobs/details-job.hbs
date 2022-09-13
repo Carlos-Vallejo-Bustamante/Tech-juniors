@@ -1,24 +1,31 @@
-<h1>{{jobTitle}}</h1>
-
-<h2>Company: {{employedName}}</h2>
-
-<h3>Tech Profile: {{jobTitle}}</h3>
-
-<h3>Location: {{locationName}}</h3>
-
-<h3>{{salryType}} Salary: {{minimunSalary}} | {{maximunSalary}} {{currency}}</h3>
-
-{{#if fullTime}}
-<h3>Presential : full time</h3>
-{{/if}}
-
-{{#if partTime}}
-<h3>Presential : part time</h3>
-{{/if}}
-
-<h3>Contract Type: {{contractType}}</h3>
-<p>Description:</p>{{{jobDescription}}}
-
-
-
-<a href="{{jobUrl}}">Apply Now</a>
+<div class="container mt-5" style="max-width: 80%;">
+    <div class="row card mb-3">
+        <div class="card-body">
+            <h2 class="card-title">{{jobTitle}}</h2>
+            <p class="card-text"><strong>Company:</strong> {{employerName}}</p>
+            <p class="card-text"><strong>Tech Profile:</strong> {{jobTitle}}</p>
+            <p class="card-text"><strong>Location:</strong> {{locationName}}</p>
+            <p class="card-text"><strong>{{salryType}} Salary:</strong> {{minimunSalary}} | {{maximunSalary}}
+                {{currency}}</p>
+            {{#if fullTime}}
+            <p class="card-text"><strong>Presential:</strong> full time</p>
+            {{/if}}
+            {{#if partTime}}
+            <p class="card-text"><strong>Presential:</strong> part time</p>
+            {{/if}}
+            <p class="card-text"><strong>Contract Type:</strong> {{contractType}}</p>
+            <p class="card-text"><strong>Description:</strong></p> {{{jobDescription}}}
+            <div class="mt-4">
+                <div class="d-flex flex-row">
+                    <a class="btn btn-dark me-2" href="{{jobUrl}}">Apply Now</a>
+                    <form action="/jobs/{{_id}}/edit" method="post">
+                        <button class="btn btn-dark me-2" type="submit">Edit job</button>
+                    </form>
+                    <form action="/jobs/{{_id}}/delete" method="post">
+                        <button class="btn btn-danger" type="submit">Delete Job</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

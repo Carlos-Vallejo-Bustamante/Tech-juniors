@@ -1,21 +1,22 @@
 <div class="container">
     <div class="row">
         <div class="col mt-3">
-            <h1>Create Job</h1>
+            <h1>Edit Job</h1>
             <hr>
-            <form action="/jobs/create" method="POST">
+            <form action="/jobs/{{_id}}/edit" method="POST">
                 <div class="mb-3 row flex-row">
                     <div class="col">
                         <div class="row">
                             <div class="col-6">
                                 <label for="emailInput" class="form-label">Job title</label>
-                                <input type="text" class="form-control" id="emailInput" name="jobTitle" required>
+                                <input type="text" class="form-control" id="emailInput" name="jobTitle"
+                                    value="{{jobTitle}}" required>
                                 <div class="text-required">Requerido.</div>
                             </div>
                             <div class="col-6">
                                 <label for="emailInput" class="form-label">Company</label>
                                 <input type="text" step="any" class="form-control" id="emailInput" name="employerName"
-                                    required>
+                                    value="{{employerName}}" required>
                                 <div class="text-required">Requerido.</div>
                             </div>
                         </div>
@@ -23,12 +24,13 @@
                             <div class="col-6">
                                 <label for="emailInput" class="form-label">Location</label>
                                 <input type="text" step="any" class="form-control" id="emailInput" name="locationName"
-                                    required>
+                                    value="{{locationName}}" required>
                                 <div class="text-required">Requerido.</div>
                             </div>
                             <div class="col-6">
                                 <label for="emailInput" class="form-label">Salary Type:</label>
-                                <input type="text" class="form-control" id="emailInput" name="salaryType" required>
+                                <input type="text" class="form-control" id="emailInput" name="salaryType"
+                                    value="{{salaryType}}" required>
                                 <div class="text-required">Requerido.</div>
                             </div>
                         </div>
@@ -37,7 +39,7 @@
                             <div class="col-6">
                                 <label for="emailInput" class="form-label">Minimun Salary</label>
                                 <input type="text" step="any" class="form-control" id="emailInput" name="minimunSalary"
-                                    required>
+                                    value="{{minimunSalary}}" required>
                                 <div class="text-required">Requerido.</div>
 
                             </div>
@@ -45,7 +47,7 @@
 
                                 <label for="emailInput" class="form-label">Maximun Salary</label>
                                 <input type="text" step="any" class="form-control" id="emailInput" name="maximunSalary"
-                                    required>
+                                    value="{{maximunSalary}}" required>
                                 <div class="text-required">Requerido.</div>
 
                             </div>
@@ -53,7 +55,7 @@
                         <div class="row pt-2">
                             <div class="col-6">
                                 <label for="emailInput" class="form-label">Currency</label>
-                                <select class="form-select" name="currency" required>
+                                <select class="form-select" name="currency" value="{{currency}}" required>
                                     <option value="EUR">EUR</option>
                                     <option value="GBP">GBP</option>
                                     <option value="USD">USD</option>
@@ -62,14 +64,15 @@
                             </div>
                             <div class="col-6">
                                 <label for="emailInput" class="form-label">Contract Type</label>
-                                <input type="text" class="form-control" id="emailInput" name="contractType" required>
+                                <input type="text" class="form-control" id="emailInput" name="contractType"
+                                    value="contractType" required>
                                 <div class="text-required">Requerido.</div>
                             </div>
                         </div>
                         <div class="row pt-2">
                             <div class="col-6">
                                 <label for="emailInput" class="form-label">Full Time:</label>
-                                <select class="form-select" name="fullTime" required>
+                                <select class="form-select" name="fullTime" value="{{fullTime}}" required>
                                     <option value="true">Yes</option>
                                     <option value="false" selected>No</option>
                                 </select>
@@ -77,7 +80,7 @@
                             </div>
                             <div class="col-6">
                                 <label for="emailInput" class="form-label">Part Time:</label>
-                                <select class="form-select" name="partTime" required>
+                                <select class="form-select" name="partTime" value="{{partTime}}" required>
                                     <option value="true">Yes</option>
                                     <option value="false" selected>No</option>
                                 </select>
@@ -90,20 +93,22 @@
                             <div class="col">
                                 <label for="emailInput" class="form-label">Description</label>
                                 <input type="text" class="form-control" id="emailInput" name="jobDescription"
-                                    maxlength="5000" required></input>
+                                    value="{{jobDescription}}" maxlength="5000" required></input>
                                 <div class="text-required">Requerido.</div>
                             </div>
                         </div>
                         <div class="mb-3 row flex-column">
                             <div class="col">
                                 <label for="emailInput" class="form-label">Offer Link</label>
-                                <input type="text" class="form-control" id="emailInput" name="jobUrl" required>
+                                <input type="text" class="form-control" id="emailInput" name="jobUrl" value="{{jobUrl}}"
+                                    required>
                                 <div class="text-required">Your offer URL.</div>
                             </div>
                         </div>
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-dark block">Create Offer Job</button>
+                            <button type="submit" class="btn btn-dark block">Update Offer Job</button>
                         </div>
+
                     </div>
             </form>
         </div>
