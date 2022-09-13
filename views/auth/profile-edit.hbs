@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <h1 class="text-center mb-5">EL FORMULARIO DE EDICION</h1>
+        <div class="col-md-6">
+            <form action="/auth/edit/{{id}}" method="POST">
+                <!-- Username input -->
+                <div class="form-outline mb-2">
+                    <label class="form-label" for="form2Example1">Username</label>
+                    <input type="text" id="form2Example1" class="form-control" name="username" value="{{username}}"
+                        required />
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-2">
+                    <label class="form-label" for="form2Example1">Email address</label>
+                    <input type="email" id="form2Example1" class="form-control" name="email" value="{{email}}"
+                        required />
+                </div>
+
+                <!-- Submit button -->
+                <div class="row ps-2 pe-2">
+                    <button type="submit" class="btn btn-primary btn-block mb-2">Edit Profile</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
