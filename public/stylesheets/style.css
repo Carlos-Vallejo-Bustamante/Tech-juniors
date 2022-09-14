@@ -128,3 +128,18 @@ footer {
   color: white;
   transition: all .5s ease;
 }
+
+.login-container {
+  height: 100vh;
+  padding-top: 10%;
+}
+
+#errorMessage {
+  color: red;
+  font-weight: 200;
+  font-family: sans-serif;
+  text-align: center;
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 20px;
+}
