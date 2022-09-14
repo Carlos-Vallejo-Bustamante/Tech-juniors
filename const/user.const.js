@@ -8,3 +8,4 @@ module.exports = {
     COMPANY,
     ROLES,
 };
+
