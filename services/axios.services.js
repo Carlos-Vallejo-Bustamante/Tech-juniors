@@ -14,6 +14,10 @@ class AxiosJuniors {
         return this.axios.get('/search').then((res) => res.data);
     }
 
+    getJobsSearch(keywords, locationName) {
+        return this.axios.get(`/search?keywords=junior ${keywords}&locationName=UK`).then((res) => res.data);
+    }
+
     getJob(jobId) {
         return this.axios.get(`/jobs/${jobId}`).then((res) => res.data);
     }

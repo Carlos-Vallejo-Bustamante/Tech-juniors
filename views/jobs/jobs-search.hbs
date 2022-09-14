@@ -1,0 +1,21 @@
+<div class="container mx-auto pb-5">
+    <div class="row mt-5 mb-5">
+        <h1 class="pt-5">Your search result</h1>
+        <h2>Promoted Jobs</h2>
+        {{#each results}}
+        <div class="col-md-4 mb-3">
+            <div class="card" style="width: 23rem;">
+                {{!-- <img src="images/jobs.jpg" class="card-img-top"> --}}
+                <div class="card-body">
+                    <h2 class="card-title h6"><strong>Tech Profile</strong>: {{jobTitle}}</h2>
+                    <p class="card-text"><strong>Company</strong>: {{employerName}}</p>
+                    <p class="card-text"><strong>Location</strong>: {{locationName}}</p>
+                    <p class="card-text"><strong>Expiration</strong>: {{expirationDate}}</p>
+                    <a href="/jobs/{{jobId}}" class="btn btn-dark text-white"><i class="fas fa-link"></i>More
+                        details</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
