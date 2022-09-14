@@ -1,7 +1,7 @@
-<section class="h-100 gradient-custom-2">
+<section class="h-100 gradient-custom-2 my-5">
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col">
+            <div class="col mt-5">
                 <div class="card">
                     <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
                         <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
@@ -22,12 +22,12 @@
                     <div class="p-4 text-black" style="background-color: #f8f9fa;">
                         <div class="d-flex justify-content-end text-center py-1">
                             <div>
-                                <p class="mb-1 h5">Ir</p>
-                                <p class="small text-muted mb-0">Github</p>
+                                <p class="mb-1 h6">Go</p>
+                                <a class="small text-muted mb-0" href="#">Github</a>
                             </div>
                             <div class="px-3">
-                                <p class="mb-1 h5">Ir</p>
-                                <p class="small text-muted mb-0">LinkedIn</p>
+                                <p class="mb-1 h6">Go</p>
+                                <a class="small text-muted mb-0" href="#">LinkedIn</a>
                             </div>
                         </div>
                     </div>
@@ -43,46 +43,27 @@
                             <div class="row">
                                 {{#each favoritesjobs.favorites}}
                                 <div class="col-md-6 my-3 d-flex justify-content-around">
-                                    <div class="card" style="width: 26rem;">
+                                    <div class="card" style="width: 30rem;">
                                         {{!-- <img src="images/jobs.jpg" class="card-img-top"> --}}
                                         <div class="card-body">
                                             <h2 class="card-title h6"><strong>Tech Profile</strong>: {{jobTitle}}</h2>
                                             <p class="card-text"><strong>Company</strong>: {{employerName}}</p>
                                             <p class="card-text"><strong>Location</strong>: {{locationName}}</p>
                                             <p class="card-text"><strong>Expiration</strong>: {{expirationDate}}</p>
-                                            <a href="/jobs/{{_id}}" class="btn btn-dark text-white"><i
-                                                    class="fas fa-link"></i>More
-                                                details</a>
-                                            <form action="/auth/profile/{{_id}}" method="post">
-                                                <button class="btn btn-danger" type="submit">Delete Job</button>
-                                            </form>
+                                            <div class="row">
+                                                <a href="/jobs/{{_id}}" class="btn btn-dark text-white col-md-6"><i
+                                                        class="fas fa-link"></i>More
+                                                    details</a>
+                                                <form class="col-md-6" action="/auth/profile/{{_id}}" method="post">
+                                                    <button class="btn btn-danger" type="submit">Delete
+                                                        Job</button>
+                                                </form>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
                                 {{/each}}
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <p class="lead fw-normal mb-0">Recent photos</p>
-                        </div>
-                        <div class="row g-2">
-                            <div class="col mb-2">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
-                                    alt="image 1" class="w-100 rounded-3">
-                            </div>
-                            <div class="col mb-2">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
-                                    alt="image 1" class="w-100 rounded-3">
-                            </div>
-                        </div>
-                        <div class="row g-2">
-                            <div class="col">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-                                    alt="image 1" class="w-100 rounded-3">
-                            </div>
-                            <div class="col">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
-                                    alt="image 1" class="w-100 rounded-3">
                             </div>
                         </div>
                     </div>
