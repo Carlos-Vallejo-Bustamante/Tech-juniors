@@ -8,14 +8,14 @@
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
                                 alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
                                 style="width: 150px; z-index: 1">
-                            <a href="/auth/edit/{{_id}}" type="button" class="btn btn-outline-dark"
+                            <a href="/auth/edit/{{user._id}}" type="button" class="btn btn-outline-dark"
                                 data-mdb-ripple-color="dark" style="z-index: 1;">
                                 Edit profile
                             </a>
                         </div>
                         <div class="ms-3" style="margin-top: 130px;">
-                            <h5>{{username}}</h5>
-                            <p>{{email}}</p>
+                            <h2>{{user.username}}</h2>
+                            <p>{{user.email}}</p>
                         </div>
                     </div>
                     <!-- -->
@@ -33,11 +33,33 @@
                     </div>
                     <div class="card-body p-4 text-black">
                         <div class="mb-5">
-                            <p class="lead fw-normal mb-1">About</p>
+                            <h3 class="lead fw-normal mb-1">About</h3>
                             <div class="p-4" style="background-color: #f8f9fa;">
                                 <p class="font-italic mb-1">Web Developer</p>
                                 <p class="font-italic mb-1">Lives in New York</p>
                                 <p class="font-italic mb-0">Photographer</p>
+                            </div>
+                            <h3 class="lead fw-normal my-3">My Favorites Jobs</h3>
+                            <div class="row">
+                                {{#each favoritesjobs.favorites}}
+                                <div class="col-md-6 my-3 d-flex justify-content-around">
+                                    <div class="card" style="width: 26rem;">
+                                        {{!-- <img src="images/jobs.jpg" class="card-img-top"> --}}
+                                        <div class="card-body">
+                                            <h2 class="card-title h6"><strong>Tech Profile</strong>: {{jobTitle}}</h2>
+                                            <p class="card-text"><strong>Company</strong>: {{employerName}}</p>
+                                            <p class="card-text"><strong>Location</strong>: {{locationName}}</p>
+                                            <p class="card-text"><strong>Expiration</strong>: {{expirationDate}}</p>
+                                            <a href="/jobs/{{_id}}" class="btn btn-dark text-white"><i
+                                                    class="fas fa-link"></i>More
+                                                details</a>
+                                            <form action="/auth/profile/{{_id}}" method="post">
+                                                <button class="btn btn-danger" type="submit">Delete Job</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/each}}
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center mb-4">
@@ -67,7 +89,7 @@
                 </div>
             </div>
         </div>
-        <form action="/auth/{{_id}}/delete" method="POST">
+        <form action="/auth/{{user._id}}/delete" method="POST">
             <button class="btn btn-danger mt-3" type="submit">Delete Student</button>
         </form>
     </div>

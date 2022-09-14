@@ -2,6 +2,7 @@ const router = require("express").Router();
 const AxiosJuniors = require('../services/axios.services')
 const axiosJob = new AxiosJuniors();
 const JobModel = require('../models/Job.model');
+const UserModel = require('../models/User.model')
 const { roleValidation } = require('../middleware/roles.middleware');
 const { USER, COMPANY } = require('../const/user.const')
 // const { findByIdAndRemove } = require("../models/Job.model");
@@ -82,6 +83,22 @@ router.post('/jobs/:jobId/delete', (req, res, next) => {
     JobModel
         .findByIdAndRemove(req.params.jobId)
         .then(() => {
+            res.redirect('/jobs')
+        })
+        .catch((err) => {
+            next(err)
+        })
+})
+
+router.post('/jobs/:jobId/favorite', (req, res, next) => {
+
+    const jobFavorite = req.params.jobId
+    const user = req.session.user
+    console.log('QUIEN ERES TU', user)
+    UserModel
+        .findByIdAndUpdate(user, { $addToSet: { favorites: jobFavorite } }, { new: true })
+        .then((currentUser) => {
+            console.log(currentUser);
             res.redirect('/jobs')
         })
         .catch((err) => {

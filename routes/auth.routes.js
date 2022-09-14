@@ -3,6 +3,7 @@ const UserModel = require('../models/User.model');
 const { roleValidation } = require('../middleware/roles.middleware');
 const { USER, COMPANY } = require('../const/user.const');
 const isLogedin = require('../middleware/is_logedin.middleware');
+const { findById } = require('../models/Job.model');
 
 //--------- GET -------
 // Create new user
@@ -23,7 +24,15 @@ router.get('/logout', (req, res, next) => {
 // Profile
 router.get('/profile', isLogedin, (req, res) => {
     const user = req.session.user
-    res.render('auth/profile', user);
+    UserModel
+        .findById(user._id)
+        .populate('favorites')
+        .then((favoritesjobs) => {
+            res.render('auth/profile', { user, favoritesjobs });
+        })
+        .catch((err) => {
+            next(err);
+        });
 });
 
 // Edit Profile
@@ -44,6 +53,7 @@ router.get('/edit/:id', (req, res, next) => {
 // Create new user 
 router.post('/create', (req, res, next) => {
     const { username, email, password, role } = req.body
+    console.log(role);
     UserModel.create({ username, email, password, role })
         .then((user) => {
             req.session.user = user;
@@ -72,6 +82,22 @@ router.post('/login', (req, res) => {
 });
 
 // Edit Profile
+router.post('/profile/:jobId', isLogedin, (req, res, next) => {
+    const user = req.session.user
+    const jobFavorite = req.params.jobId
+    console.log('JOB FAVORITE', jobFavorite);
+    UserModel
+        .findByIdAndUpdate(user, { $pull: { favorites: jobFavorite } }, { new: true })
+        // .populate('favorites')
+        .then((favoritesjobs) => {
+            console.log('JOB FAVORITE', favoritesjobs);
+            res.redirect('/auth/profile');
+        })
+        .catch((err) => {
+            next(err);
+        });
+});
+
 router.post('/edit/:id', (req, res, next) => {
     const { username, email } = req.body
     UserModel.findByIdAndUpdate(req.params.id, { username, email }, { new: true })
@@ -83,6 +109,7 @@ router.post('/edit/:id', (req, res, next) => {
             next(err);
         });
 });
+
 
 // Delete
 router.post('/:id/delete', (req, res, next) => {

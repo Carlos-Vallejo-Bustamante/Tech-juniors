@@ -31,7 +31,6 @@ app.locals.appTitle = `${capitalized(projectName)}`;
 app.use((req, res, next) => {
     if (req.session.user) {
         app.locals.nav = req.session.user.role
-        console.log(app.locals.nav);
         next();
         return;
     } else {
