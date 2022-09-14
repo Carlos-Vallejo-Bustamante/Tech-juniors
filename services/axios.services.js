@@ -25,13 +25,13 @@ class AxiosJuniors {
     //         .then((res) => res.data);
     // }
 
-    editJob(id, body) {
-        return this.axios.put(`/jobs/${id}`, body).then((res) => res.data);
-    }
+    // editJob(id, body) {
+    //     return this.axios.put(`/jobs/${id}`, body).then((res) => res.data);
+    // }
 
-    deleteJob(id) {
-        return this.axios.delete(`/jobs/${id}`).then((res) => res.data);
-    }
+    // deleteJob(id) {
+    //     return this.axios.delete(`/jobs/${id}`).then((res) => res.data);
+    // }
 }
 
 module.exports = AxiosJuniors;

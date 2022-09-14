@@ -2,7 +2,9 @@ const router = require("express").Router();
 const AxiosJuniors = require('../services/axios.services')
 const axiosJob = new AxiosJuniors();
 const JobModel = require('../models/Job.model');
-const { findByIdAndRemove } = require("../models/Job.model");
+const { roleValidation } = require('../middleware/roles.middleware');
+const { USER, COMPANY } = require('../const/user.const')
+// const { findByIdAndRemove } = require("../models/Job.model");
 
 
 
@@ -25,8 +27,12 @@ router.get("/jobs", (req, res, next) => {
         .catch((error) => next(error));
 });
 
-router.get('/jobs/create', (req, res, next) => {
-    res.render('jobs/create-job')
+router.get('/jobs/create', roleValidation(COMPANY), (req, res, next) => {
+    if (req.session.user.role === 'COMPANY') {
+        res.render('jobs/create-job')
+    } else {
+        res.render('auth/login', { errorMessage: 'You must be Company to access this page' })
+    }
 })
 
 router.get('/jobs/:jobId', (req, res, next) => {
@@ -61,7 +67,7 @@ router.get('/jobs/:jobId/edit', (req, res, render) => {
 
 /* POST Jobs page */
 
-router.post('/jobs/create', (req, res, next) => {
+router.post('/jobs/create', roleValidation(COMPANY), (req, res, next) => {
     const { jobTitle, employerName, locationName, salaryType, minimunSalary, maximunSalary, currency, fullTime, partTime, contractType, jobDescription, jobUrl } = req.body;
     console.log(req.body);
     JobModel
