@@ -73,10 +73,10 @@ router.post('/login', (req, res) => {
                 req.session.user = user;
                 res.redirect('/auth/profile');
             } else {
-                res.render('auth/login', { errorMessage: 'email or password incorrect' });
+                res.render('auth/login', { errorMessage: 'email or password incorrect ❗️' });
             }
         } else {
-            res.render('auth/login', { errorMessage: 'email or password incorrect' });
+            res.render('auth/login', { errorMessage: 'email or password incorrect ❗️' });
         }
     });
 });
