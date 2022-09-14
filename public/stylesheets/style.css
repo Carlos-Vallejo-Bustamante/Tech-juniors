@@ -4,11 +4,6 @@ body {
   margin: 0 auto;
 }
 
-html {
-  /*   min-height: 100%;
- */
-}
-
 body {
   /*   padding-top: 60px;
   padding-bottom: 60px;
@@ -85,4 +80,9 @@ footer {
 
 .search-bar {
   display: flex;
+}
+
+.margin-view {
+  height: 100vh;
+  padding-top: 80px;
 }

@@ -1,4 +1,4 @@
-<div class="container mt-5" style="max-width: 80%;">
+<div class="container mt-5 pt-5 pb-5" style="max-width: 80%;">
     <div class="row card mb-3">
         <div class="card-body">
             <h2 class="card-title">{{jobTitle}}</h2>
@@ -18,7 +18,7 @@
             <div class="mt-4">
                 <div class="d-flex flex-row">
                     <a class="btn btn-dark me-2" href="{{jobUrl}}">Apply Now</a>
-                    <form action="/jobs/{{_id}}/edit" method="post">
+                    <form action="/jobs/{{_id}}/edit" method="get">
                         <button class="btn btn-dark me-2" type="submit">Edit job</button>
                     </form>
                     <form action="/jobs/{{_id}}/delete" method="post">
