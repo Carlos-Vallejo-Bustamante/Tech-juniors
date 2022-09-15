@@ -12,7 +12,7 @@
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-dark">
    <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-dark">
          <a class="navbar-brand ms-3 text-white" href="/"><strong>TECH JR</strong> </a>
@@ -25,11 +25,11 @@
                <li class="nav-item active">
                   <a class="nav-link text-white" href="/jobs">JOBS</a>
                </li>
-               {{!-- {{#if userIsCompany }} --}}
+               {{#if navJob }}
                <li class="nav-item">
                   <a class="nav-link text-white" href="/jobs/create">CREATE JOB</a>
                </li>
-               {{!-- {{/if}} --}}
+               {{/if}}
                {{#if nav }}
                <li class="nav-item">
                   <a class="nav-link text-white" href="/auth/profile">PROFILE</a>

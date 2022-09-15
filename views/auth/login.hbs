@@ -1,23 +1,23 @@
 <div class="login-container">
     <div class="container">
         <div class="row justify-content-center">
-            <h1 class="text-center mb-5">TECH JUNIORS</h1>
+            <h1 class="text-center mb-5 text-white">TECH JUNIORS</h1>
             <div class="col-md-6">
                 <form action="/auth/login" method="POST">
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                         <input type="email" id="form2Example1" class="form-control" name="email" required />
-                        <label class="form-label" for="form2Example1">Email address</label>
+                        <label class="form-label text-white" for="form2Example1">Email address</label>
                     </div>
 
                     <!-- Password input -->
                     <div class="form-outline mb-4">
                         <input type="password" id="form2Example2" class="form-control" name="password" required />
-                        <label class="form-label" for="form2Example2">Password</label>
+                        <label class="form-label text-white" for="form2Example2">Password</label>
                     </div>
                     <!-- Submit button -->
                     <div class="row ps-2 pe-2">
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Log in</button>
+                        <button type="submit" class="btn btn-primary btn-block mb-4 text-white">Log in</button>
                     </div>
                     <!-- 2 column grid layout for inline styling -->
                     <div class="row mb-4">
@@ -26,20 +26,20 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked
                                     required />
-                                <label class="form-check-label" for="form2Example31"> Remember me </label>
+                                <label class="form-check-label text-white" for="form2Example31"> Remember me </label>
                             </div>
                         </div>
 
                         <div class="col">
                             <!-- Simple link -->
-                            <a href="#!">Forgot password?</a>
+                            <a class=" text-white" href="#!">Forgot password?</a>
                         </div>
                     </div>
                     <hr>
 
                     <!-- Register buttons -->
                     <div class="text-center">
-                        <p>Not a member? <a href="/auth/signup">Register</a></p>
+                        <p class=" text-white">Not a member? <a href="/auth/signup">Register</a></p>
                     </div>
                     {{#if errorMessage}}
                     <div id="errorMessage">

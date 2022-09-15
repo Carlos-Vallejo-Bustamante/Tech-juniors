@@ -39,6 +39,17 @@ app.use((req, res, next) => {
     next();
 })
 
+app.use((req, res, next) => {
+    if (req.session.user && req.session.user.role === 'COMPANY') {
+        app.locals.navJob = req.session.user.role
+        next();
+        return;
+    } else {
+        app.locals.navJob = null
+    }
+    next();
+})
+
 const index = require("./routes/index.routes");
 app.use("/", index);
 
