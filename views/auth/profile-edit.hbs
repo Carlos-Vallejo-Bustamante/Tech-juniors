@@ -1,7 +1,7 @@
 <div class="login-container">
   <div class="container">
     <div class="row justify-content-center">
-      <h1 class=" mb-5">Your Profile</h1>
+      <h1 class="text-white mb-5">Your Profile</h1>
       <div class="col-md-6">
         <form action="/auth/edit/{{id}}" method="POST">
 
@@ -14,13 +14,13 @@
           <!-- name input -->
           <div class="form-outline mb-2">
             <label class="form-label" for="form2Example1">Your Name(s)</label>
-            <input type="email" id="form2Example1" class="form-control" name="name" value="{{name}}" />
+            <input type="text" id="form2Example1" class="form-control" name="name" value="{{name}}" />
           </div>
 
           <!-- lastname input -->
           <div class="form-outline mb-2">
             <label class="form-label" for="form2Example1">Your Lastname(s)</label>
-            <input type="email" id="form2Example1" class="form-control" name="email" value="{{lastname}}" />
+            <input type="text" id="form2Example1" class="form-control" name="lastname" value="{{lastname}}" />
           </div>
 
           <!-- Email input -->
@@ -38,7 +38,7 @@
         <!-- Genre input -->
         <div class="form-outline mb-2">
           <label class="form-label" for="form2Example1">Genre</label>
-          <select class="form-select" name="genre">
+          <select class="form-select" name="genre" value="{{genre}}">
             <option value=""></option>
             <option value="Man">Man</option>
             <option value="Woman">Woman</option>
@@ -49,19 +49,20 @@
         <!-- Borndate input -->
         <div class="form-outline mb-2">
           <label class="form-label" for="form2Example1">Your born date</label>
-          <input class="form-select" type="date" id="start" name="borndate" min="1950-01-01" max="2023-01=01">
+          <input class="form-select" type="date" id="start" name="borndate" value="{{borndate}}" min="1950-01-01"
+            max="2023-01=01">
         </div>
 
         <!-- Linkedin input -->
         <div class="form-outline mb-2">
           <label class="form-label" for="form2Example1">LinkedIn</label>
-          <input type="email" id="form2Example1" class="form-control" name="email" value="{{email}}" required />
+          <input type="text" id="form2Example1" class="form-control" name="linkedin" value="{{linkedin}}" required />
         </div>
 
         <!-- github input -->
         <div class="form-outline mb-2">
           <label class="form-label" for="form2Example1">Github / Medium</label>
-          <input type="email" id="form2Example1" class="form-control" name="email" value="{{email}}" required />
+          <input type="text" id="form2Example1" class="form-control" name="github" value="{{github}}" required />
         </div>
         </form>
       </div>

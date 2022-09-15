@@ -8,12 +8,36 @@
    <title>{{appTitle}}</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
    <link rel="stylesheet" href="/stylesheets/style.css" />
    <!-- CSS only -->
 </head>
 
 <body class="bg-dark">
-   <div class="container">
+
+   <div class="mynavbar">
+      <a class="navbar-brand ms-3 text-white" href="/"><strong>TECH JR</strong> </a>
+      <a class="nav-link text-white" href="/jobs">JOBS</a>
+      {{#if navJob }}
+
+      <a class="nav-link text-white" href="/jobs/create">CREATE JOB</a>
+      {{/if}}
+      {{#if nav }}
+      <a class="nav-link text-white" href="/auth/profile">PROFILE</a>
+      <a class="nav-link text-white" href="/auth/logout">LOG OUT</a>
+      {{/if}}
+      {{#unless nav }}
+      <a class="nav-link text-white" href="/auth/login">LOG IN</a>
+      <a class="nav-link text-white" href="/auth/signup">SIGN UP</a>
+      {{/unless}}
+
+   </div>
+
+
+
+
+
+   {{!-- <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-dark">
          <a class="navbar-brand ms-3 text-white" href="/"><strong>TECH JR</strong> </a>
          <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -49,22 +73,16 @@
             </ul>
          </div>
       </nav>
-   </div>
+   </div> --}}
 
    {{{body}}}
 
-   <div class="footer-container">
-      <div class="row">
-         <footer class="bg-dark text-center text-lg-start">
-            <!-- Copyright -->
-            <div class="text-center p-3">
-               © 2020 Copyright:
-               <a class="text-white" href="/">Tech Juniors</a>
-            </div>
-            <!-- Copyright -->
-         </footer>
+   <footer class=" footer-container">
+      <div class="text-center p-3">
+         © 2020 Copyright:
+         <a class="text-white" href="/">Tech Juniors</a>
       </div>
-   </div>
+   </footer>
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
