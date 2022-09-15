@@ -15,11 +15,11 @@ const userSchema = new Schema({
   github: { type: String, default: '' },
   role: { type: String, enum: ROLES, default: USER },
   favorites: [{ type: Schema.Types.ObjectId, ref: 'Job' }],
-}, {
-  timestamps: true,
-  versionKey: false
-});
-
+},
+  {
+    timestamps: true,
+    versionKey: false
+  });
 
 userSchema.pre('save', function (next) {
   if (this.isNew) {

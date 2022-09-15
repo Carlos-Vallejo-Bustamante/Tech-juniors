@@ -13,10 +13,11 @@ const jobSchema = new Schema({
     contractType: { type: String, required: true },
     jobDescription: { type: String, required: true },
     jobUrl: { type: String, required: true },
-}, {
-    timestamps: true,
-    versionKey: false
-});
+},
+    {
+        timestamps: true,
+        versionKey: false
+    });
 
 
 const JobModel = model("Job", jobSchema);

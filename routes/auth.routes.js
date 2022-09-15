@@ -1,12 +1,8 @@
 const router = require('express').Router();
 const UserModel = require('../models/User.model');
-const { roleValidation } = require('../middleware/roles.middleware');
-const { USER, COMPANY } = require('../const/user.const');
 const isLogedin = require('../middleware/is_logedin.middleware');
-const { findById } = require('../models/Job.model');
 
 //--------- GET -------
-// Create new user
 router.get('/signup', (req, res) => {
     res.render('auth/signup');
 });
@@ -21,7 +17,6 @@ router.get('/logout', (req, res, next) => {
     res.redirect('/')
 })
 
-// Profile
 router.get('/profile', isLogedin, (req, res) => {
     const user = req.session.user
     UserModel
@@ -35,9 +30,10 @@ router.get('/profile', isLogedin, (req, res) => {
         });
 });
 
-// Edit Profile
 router.get('/edit/:id', (req, res, next) => {
-    UserModel.findById(req.params.id)
+    const { id } = req.params
+
+    UserModel.findById(id)
         .then((user) => {
             res.render('auth/profile-edit', user);
         })
@@ -46,14 +42,9 @@ router.get('/edit/:id', (req, res, next) => {
         });
 });
 
-
-
-
 // ------------ POST --------
-// Create new user 
 router.post('/create', (req, res, next) => {
     const { username, email, password, role } = req.body
-    console.log(role);
     UserModel.create({ username, email, password, role })
         .then((user) => {
             req.session.user = user;
@@ -64,7 +55,6 @@ router.post('/create', (req, res, next) => {
         });
 });
 
-// Login
 router.post('/login', (req, res) => {
     const { email, password } = req.body;
     UserModel.findOne({ email }).then((user) => {
@@ -85,12 +75,9 @@ router.post('/login', (req, res) => {
 router.post('/profile/:jobId', isLogedin, (req, res, next) => {
     const user = req.session.user
     const jobFavorite = req.params.jobId
-    console.log('JOB FAVORITE', jobFavorite);
     UserModel
         .findByIdAndUpdate(user, { $pull: { favorites: jobFavorite } }, { new: true })
-        // .populate('favorites')
-        .then((favoritesjobs) => {
-            console.log('JOB FAVORITE', favoritesjobs);
+        .then(() => {
             res.redirect('/auth/profile');
         })
         .catch((err) => {
@@ -98,8 +85,6 @@ router.post('/profile/:jobId', isLogedin, (req, res, next) => {
         });
 });
 
-
-// Edit Profile
 router.post('/edit/:id', (req, res, next) => {
     const { username, email, name, lastname, genre, borndate, linkedin, github } = req.body
     UserModel.findByIdAndUpdate(req.params.id, { username, email, name, lastname, genre, borndate, linkedin, github }, { new: true })
@@ -112,8 +97,6 @@ router.post('/edit/:id', (req, res, next) => {
         });
 });
 
-
-// Delete
 router.post('/:id/delete', (req, res, next) => {
     UserModel.findByIdAndDelete(req.params.id)
         .then(() => {
@@ -124,6 +107,5 @@ router.post('/:id/delete', (req, res, next) => {
         });
 
 });
-
 
 module.exports = router;
