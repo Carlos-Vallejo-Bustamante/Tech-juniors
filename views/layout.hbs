@@ -14,8 +14,8 @@
 
 <body>
    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
-         <a class="navbar-brand ms-3 text-white" href="/">Home</a>
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-dark">
+         <a class="navbar-brand ms-3 text-white" href="/"><strong>TECH JR</strong> </a>
          <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,27 +23,27 @@
          <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                <li class="nav-item active">
-                  <a class="nav-link text-white" href="/jobs">Jobs</a>
+                  <a class="nav-link text-white" href="/jobs">JOBS</a>
                </li>
                {{!-- {{#if userIsCompany }} --}}
                <li class="nav-item">
-                  <a class="nav-link text-white" href="/jobs/create">Create Job</a>
+                  <a class="nav-link text-white" href="/jobs/create">CREATE JOB</a>
                </li>
                {{!-- {{/if}} --}}
                {{#if nav }}
                <li class="nav-item">
-                  <a class="nav-link text-white" href="/auth/profile">Profile</a>
+                  <a class="nav-link text-white" href="/auth/profile">PROFILE</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link text-white" href="/auth/logout">Log out</a>
+                  <a class="nav-link text-white" href="/auth/logout">LOG OUT</a>
                </li>
                {{/if}}
                <li class="nav-item">
                   {{#unless nav }}
-                  <a class="nav-link text-white" href="/auth/login">Log in</a>
+                  <a class="nav-link text-white" href="/auth/login">LOG IN</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link text-white" href="/auth/signup">Sign up</a>
+                  <a class="nav-link text-white" href="/auth/signup">SIGN UP</a>
                </li>
                {{/unless}}
             </ul>

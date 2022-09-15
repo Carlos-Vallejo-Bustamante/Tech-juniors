@@ -107,6 +107,11 @@
                                 <button type="submit" class="btn btn-dark block">Create Offer Job</button>
                             </div>
                         </div>
+                        {{#if errorMessage}}
+                        <div id="errorMessage">
+                            <p>{{errorMessage}}</p>
+                        </div>
+                        {{/if}}
                 </form>
             </div>
         </div>
