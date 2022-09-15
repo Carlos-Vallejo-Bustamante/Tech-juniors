@@ -81,7 +81,7 @@ router.post('/login', (req, res) => {
     });
 });
 
-// Edit Profile
+// Remove favorite
 router.post('/profile/:jobId', isLogedin, (req, res, next) => {
     const user = req.session.user
     const jobFavorite = req.params.jobId
@@ -98,9 +98,11 @@ router.post('/profile/:jobId', isLogedin, (req, res, next) => {
         });
 });
 
+
+// Edit Profile
 router.post('/edit/:id', (req, res, next) => {
-    const { username, email } = req.body
-    UserModel.findByIdAndUpdate(req.params.id, { username, email }, { new: true })
+    const { username, email, name, lastname, genre, borndate, linkedin, github } = req.body
+    UserModel.findByIdAndUpdate(req.params.id, { username, email, name, lastname, genre, borndate, linkedin, github }, { new: true })
         .then((user) => {
             req.session.user = user
             res.redirect('/auth/profile');

@@ -90,6 +90,7 @@ router.post('/jobs/:jobId/delete', (req, res, next) => {
         })
 })
 
+// Add favorite
 router.post('/jobs/:jobId/favorite', (req, res, next) => {
 
     const jobFavorite = req.params.jobId

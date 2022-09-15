@@ -7,6 +7,12 @@ const userSchema = new Schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, minlength: 8 },
+  name: { type: String, default: '' },
+  lastname: { type: String, default: '' },
+  genre: { type: String, enum: ['', 'Man', 'Woman', 'Other'], default: '' },
+  borndate: { type: String, default: '' },
+  linkedin: { type: String, default: '' },
+  github: { type: String, default: '' },
   role: { type: String, enum: ROLES, default: USER },
   favorites: [{ type: Schema.Types.ObjectId, ref: 'Job' }],
 }, {
