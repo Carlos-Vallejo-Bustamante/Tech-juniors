@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const multerMiddleware = require('../middleware/multer.middleware');
 const UserModel = require('../models/User.model');
 const isLogedin = require('../middleware/is_logedin.middleware');
 
@@ -85,9 +86,13 @@ router.post('/profile/:jobId', isLogedin, (req, res, next) => {
         });
 });
 
-router.post('/edit/:id', (req, res, next) => {
-    const { username, email, name, lastname, genre, borndate, linkedin, github } = req.body
-    UserModel.findByIdAndUpdate(req.params.id, { username, email, name, lastname, genre, borndate, linkedin, github }, { new: true })
+router.post('/edit/:id', multerMiddleware.single('avatar'), (req, res, next) => {
+    const { username, email, name, lastname, genre, borndate, linkedin, github, avatar } = req.body
+    let image = undefined;
+    if (req.file && req.file.path) {
+        image = req.file.path
+    }
+    UserModel.findByIdAndUpdate(req.params.id, { username, email, name, lastname, genre, borndate, linkedin, github, avatar: image }, { new: true })
         .then((user) => {
             req.session.user = user
             res.redirect('/auth/profile');
@@ -100,6 +105,7 @@ router.post('/edit/:id', (req, res, next) => {
 router.post('/:id/delete', (req, res, next) => {
     UserModel.findByIdAndDelete(req.params.id)
         .then(() => {
+            req.session.destroy();
             res.redirect('/');
         })
         .catch((err) => {

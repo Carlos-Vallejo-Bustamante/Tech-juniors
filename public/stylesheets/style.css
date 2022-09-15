@@ -62,13 +62,14 @@ h1 {
   z-index: -1;
 }
 
-.footer-container {
+footer {
   width: 100%;
-  z-index: 20;
+  height: 90px;
+  z-index: 80;
   color: white;
   font-size: 14px;
-  padding-top: 10px;
-  margin-top: -60;
+  background-color: rgba(40, 40, 40, 0.627);
+  bottom: 0;
 }
 
 .search {
@@ -166,7 +167,7 @@ h1 {
 .overlay {
   width: 100%;
   height: 100%;
-  background-color: rgba(37, 36, 46, 0.707);
+  background-color: rgba(40, 40, 40, 0.627);
   position: absolute;
   z-index: 2;
 }
@@ -192,4 +193,41 @@ h1 {
 
 label {
   color: white;
+}
+
+.hide-row {
+  -webkit-appearance: none;
+}
+
+.break-text {
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.home-search-inputs:focus {
+  background-color: rgb(40, 40, 40);
+}
+
+.card-animation {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+}
+
+.card-animation:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+#avatar-size {
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+}
+
+#avatar-size img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

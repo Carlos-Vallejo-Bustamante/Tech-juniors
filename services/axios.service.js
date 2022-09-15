@@ -1,17 +1,18 @@
 const axios = require('axios');
+const API_KEY = process.env.API_KEY
 
 class JobsService {
     constructor() {
         this.axios = axios.create({
             baseURL: 'https://www.reed.co.uk/api/1.0',
             auth: {
-                username: '33b0c34b-163f-4d0d-b895-320394c3e0fa',
+                username: API_KEY,
                 password: ''
             }
         });
     }
     getJobs() {
-        return this.axios.get('/search').then((res) => res.data);
+        return this.axios.get('/search?keywords=junior+web&locationName=UK').then((res) => res.data);
     }
 
     getJobsSearch(keywords, locationName) {

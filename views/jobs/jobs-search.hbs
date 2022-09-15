@@ -1,17 +1,17 @@
-<div class="container mx-auto pb-5">
-    <div class="row mt-5 mb-5">
-        <h1 class="pt-5">Your search result</h1>
-        <h2>Promoted Jobs</h2>
+<div class="container mx-auto">
+    <div class="row mb-5">
+        <h1 class="pt-5 text-white mt-5 mb-5"> <strong>Your search result</strong> </h1>
         {{#each results}}
         <div class="col-md-4 mb-3">
-            <div class="card" style="width: 23rem;">
+            <div class="card card-animation" style="width: 23rem;">
                 {{!-- <img src="images/jobs.jpg" class="card-img-top"> --}}
                 <div class="card-body">
-                    <h2 class="card-title h6"><strong>Tech Profile</strong>: {{jobTitle}}</h2>
-                    <p class="card-text"><strong>Company</strong>: {{employerName}}</p>
-                    <p class="card-text"><strong>Location</strong>: {{locationName}}</p>
-                    <p class="card-text"><strong>Expiration</strong>: {{expirationDate}}</p>
-                    <a href="/jobs/{{jobId}}" class="btn btn-dark text-white"><i class="fas fa-link"></i>More
+                    <h3 class="card-title break-text">{{jobTitle}}</h3>
+                    <p class="card-text break-text mt-2"><strong>Company</strong>: {{employerName}}</p>
+                    <p class="card-text break-text mt-2"><strong>Expiration</strong>: {{expirationDate}}</p>
+                    <p class="card-text break-text mt-2"><i class="fa-solid fa-location-pin"></i><strong></strong>
+                        {{locationName}}</p>
+                    <a href="/jobs/{{jobId}}" class="btn btn-dark text-white mt-4">More
                         details</a>
                 </div>
             </div>

@@ -1,14 +1,20 @@
 <div class="login-container">
   <div class="container">
     <div class="row justify-content-center">
-      <h1 class="text-white mb-5">Your Profile</h1>
+      <h1 class="text-white mb-5">Edit Your Profile</h1>
       <div class="col-md-6">
-        <form action="/auth/edit/{{id}}" method="POST">
+        <form action="/auth/edit/{{id}}" method="POST" enctype="multipart/form-data">
 
           <!-- Username input -->
           <div class="form-outline mb-2">
             <label class="form-label" for="form2Example1">Username</label>
             <input type="text" id="form2Example1" class="form-control" name="username" value="{{username}}" required />
+          </div>
+
+          <div class="form-outline mb-2">
+            <label class="form-label" for="form2Example1">Your Photo</label>
+            <input type="file" id="form2Example1" class="form-control" name="avatar" value="{{avatar}}" />
+            <input type="text" name="existingImage" hidden value="{{avatar}}">
           </div>
 
           <!-- name input -->
@@ -30,7 +36,7 @@
           </div>
           <!-- Submit button -->
           <div class="row ps-2 pe-2">
-            <button type="submit" class="btn btn-primary btn-block mb-2 mt-3">Edit Profile</button>
+            <button type="submit" class="btn btn-primary btn-block mb-2 mt-3">Update Profile</button>
           </div>
       </div>
 
@@ -39,7 +45,6 @@
         <div class="form-outline mb-2">
           <label class="form-label" for="form2Example1">Genre</label>
           <select class="form-select" name="genre" value="{{genre}}">
-            <option value=""></option>
             <option value="Man">Man</option>
             <option value="Woman">Woman</option>
             <option value="Other">Other</option>
@@ -49,20 +54,20 @@
         <!-- Borndate input -->
         <div class="form-outline mb-2">
           <label class="form-label" for="form2Example1">Your born date</label>
-          <input class="form-select" type="date" id="start" name="borndate" value="{{borndate}}" min="1950-01-01"
-            max="2023-01=01">
+          <input class="form-select hide-row" type="date" id="start" name="borndate" value="{{borndate}}"
+            min="1950-01-01" max="2023-01=01">
         </div>
 
         <!-- Linkedin input -->
         <div class="form-outline mb-2">
           <label class="form-label" for="form2Example1">LinkedIn</label>
-          <input type="text" id="form2Example1" class="form-control" name="linkedin" value="{{linkedin}}" required />
+          <input type="text" id="form2Example1" class="form-control" name="linkedin" value="{{linkedin}}" />
         </div>
 
         <!-- github input -->
         <div class="form-outline mb-2">
           <label class="form-label" for="form2Example1">Github / Medium</label>
-          <input type="text" id="form2Example1" class="form-control" name="github" value="{{github}}" required />
+          <input type="text" id="form2Example1" class="form-control" name="github" value="{{github}}" />
         </div>
         </form>
       </div>

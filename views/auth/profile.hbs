@@ -1,18 +1,12 @@
-<section class="h-100 gradient-custom-2 my-5">
+<section class="h-100 gradient-custom-2 mb-5">
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col mt-5">
+            <div class="col mt-5 pt-5">
                 <div class="card">
                     <div class="rounded-top text-white d-flex flex-row"
-                        style="background-color: rgb(33, 37, 41); height:200px;">
+                        style="background-color: #212529; height:250px;">
                         <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                                alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
-                                style="width: 150px; z-index: 1">
-                            <a href="/auth/edit/{{user._id}}" type="button" class="btn btn-outline-dark"
-                                data-mdb-ripple-color="dark" style="z-index: 1;">
-                                Edit profile
-                            </a>
+                            <img src="{{user.avatar}}" class="img-thumbnail mt-4">
                         </div>
                         <div class="ms-3" style="margin-top: 100px;">
                             <h2>{{user.name}} {{user.lastname}}</h2>
@@ -21,14 +15,22 @@
                     </div>
                     <!-- -->
                     <div class="p-4 text-black" style="background-color: #f8f9fa;">
-                        <div class="d-flex justify-content-end text-center py-1">
-                            <div class="d-flex flex-column">
-                                <i class="fa-brands fa-github mb-1 h6"></i>
-                                <a class="small text-muted mb-0" href="{{user.github}}">Github</a>
+                        <div class="d-flex justify-content-between text-center py-1">
+                            <div class="">
+                                <a href="/auth/edit/{{user._id}}" type="button" class="btn btn-outline-dark"
+                                    data-mdb-ripple-color="dark" style="z-index: 1">
+                                    Edit profile
+                                </a>
                             </div>
-                            <div class="px-3 d-flex flex-column">
-                                <i class="fa-brands fa-linkedin mb-1 h6"></i>
-                                <a class="small text-muted mb-0" href="{{user.linkedin}}">LinkedIn</a>
+                            <div class="d-flex flex-row">
+                                <div class="d-flex flex-column">
+                                    <i class="fa-brands fa-github mb-1 h6"></i>
+                                    <a class="small text-muted mb-0" href="{{user.github}}">Github</a>
+                                </div>
+                                <div class="px-3 d-flex flex-column">
+                                    <i class="fa-brands fa-linkedin mb-1 h6"></i>
+                                    <a class="small text-muted mb-0" href="{{user.linkedin}}">LinkedIn</a>
+                                </div>
                             </div>
                         </div>
                     </div>

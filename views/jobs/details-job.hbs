@@ -1,11 +1,10 @@
-<div class="container mt-5 pt-5 pb-5" style="max-width: 80%;">
-    <div class="row card mb-3">
+<div class="container pt-5 pb-5" style="max-width: 80%;">
+    <div class="row card mb-3 mt-5">
         <div class="card-body">
             <h2 class="card-title">{{jobTitle}}</h2>
+            <hr class="my-4">
             <p class="card-text"><strong>Company:</strong> {{employerName}}</p>
-            <p class="card-text"><strong>Tech Profile:</strong> {{jobTitle}}</p>
-            <p class="card-text"><strong>Location:</strong> {{locationName}}</p>
-            <p class="card-text"><strong>{{salryType}} Salary:</strong> {{minimunSalary}} | {{maximunSalary}}
+            <p class="card-text"><strong>{{salryType}} Salary:</strong> {{minimunSalary}} - {{maximunSalary}}
                 {{currency}}</p>
             {{#if fullTime}}
             <p class="card-text"><strong>Presential:</strong> full time</p>
@@ -14,19 +13,23 @@
             <p class="card-text"><strong>Presential:</strong> part time</p>
             {{/if}}
             <p class="card-text"><strong>Contract Type:</strong> {{contractType}}</p>
-            <p class="card-text"><strong>Description:</strong></p> {{{jobDescription}}}
+            <p class="card-text"><i class="fa-solid fa-location-pin"></i> {{locationName}}</p>
+            <hr class="my-4">
+            <h3 class="card-text">Description:</h3> {{{jobDescription}}}
             <div class="mt-4">
                 <div class="d-flex flex-row">
-                    <a class="btn btn-dark me-2" href="{{jobUrl}}">Apply Now</a>
+                    <a class="btn btn-primary me-2" href="{{jobUrl}}">Apply Now</a>
+                    {{#if navJob}}
                     <form action="/jobs/{{_id}}/edit" method="get">
                         <button class="btn btn-dark me-2" type="submit">Edit job</button>
                     </form>
-                    <form action="/jobs/{{_id}}/delete" method="post">
-                        <button class="btn btn-danger  me-2" type="submit">Delete Job</button>
-                    </form>
                     <form action="/jobs/{{_id}}/favorite" method="post">
-                        <button class="btn btn-dark" type="submit">Add Favorite</button>
+                        <button class="btn btn-dark me-2" type="submit">Add Favorite</button>
                     </form>
+                    <form action="/jobs/{{_id}}/delete" method="post">
+                        <button class="btn btn-danger me-2" type="submit">Delete Job</button>
+                    </form>
+                    {{/if}}
                 </div>
             </div>
         </div>

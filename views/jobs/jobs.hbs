@@ -1,32 +1,35 @@
 <div class="container mx-auto pb-5">
-    <div class="row mt-5 mb-5">
-        <h1 class="pt-5 text-white">Jobs</h1>
-        <h2 class="text-white">Promoted Jobs</h2>
+    <div class="row mb-5">
+        <h1 class="pt-5 text-white mt-5"><strong>Jobs</strong></h1>
+        <h4 class="text-white mt-3">Local Jobs</h4>
         {{#each localJobs}}
         <div class="col-md-4 mb-3">
-            <div class="card" style="width: 23rem;">
+            <div class="card card-animation" style="width: 23rem;">
                 {{!-- <img src="images/jobs.jpg" class="card-img-top"> --}}
                 <div class="card-body">
-                    <h3 class="card-title">{{jobTitle}}</h3>
-                    <p class="card-text"><strong>Company</strong>: {{employerName}}</p>
-                    <p class="card-text"><strong>Location</strong>: {{locationName}}</p>
-                    <p class="card-text"><strong>Expiration</strong>: {{expirationDate}}</p>
-                    <a href="/jobs/{{_id}}" class="btn btn-dark text-white"><i class="fas fa-link"></i>More
+                    <h3 class="card-title break-text">{{jobTitle}}</h3>
+                    <p class="card-text break-text mt-2"><strong>Company</strong>: {{employerName}}</p>
+                    <p class="card-text break-text mt-2"><strong>Expiration</strong>: {{expirationDate}}</p>
+                    <p class="card-text break-text mt-2"><strong><i class="fa-solid fa-location-pin"></i> </strong>
+                        {{locationName}}</p>
+                    <a href="/jobs/{{_id}}" class="btn btn-dark text-white mt-4"></i>More
                         details</a>
                 </div>
             </div>
         </div>
         {{/each}}
+        <h4 class="text-white mt-4">Promoted Jobs</h4>
         {{#each myJobs}}
         <div class="col-md-4 mb-3">
-            <div class="card" style="width: 23rem;">
+            <div class="card card-animation" style="width: 23rem;">
                 {{!-- <img src="images/jobs.jpg" class="card-img-top"> --}}
                 <div class="card-body">
-                    <h3 class="card-title h6">{{jobTitle}}</h3>
-                    <p class="card-text"><strong>Company</strong>: {{employerName}}</p>
-                    <p class="card-text"><strong>Location</strong>: {{locationName}}</p>
-                    <p class="card-text"><strong>Expiration</strong>: {{expirationDate}}</p>
-                    <a href="/jobs/{{jobId}}" class="btn btn-dark text-white"><i class="fas fa-link"></i>More
+                    <h3 class="card-title break-text">{{jobTitle}}</h3>
+                    <p class="card-text break-text mt-2"><strong>Company</strong>: {{employerName}}</p>
+                    <p class="card-text break-text mt-2"><strong>Expiration</strong>: {{expirationDate}}</p>
+                    <p class="card-text break-text mt-2"><strong><i class="fa-solid fa-location-pin"></i></strong>
+                        {{locationName}}</p>
+                    <a href="/jobs/{{jobId}}" class="btn btn-dark text-white mt-4">More
                         details</a>
                 </div>
             </div>
