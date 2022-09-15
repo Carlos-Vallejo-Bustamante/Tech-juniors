@@ -1,20 +1,20 @@
 <div class="margin-view">
     <div class="container">
         <div class="row">
-            <div class="col mt-3">
-                <h1>Create Job</h1>
+            <div class="col mt-3 mb-5">
+                <h1 class="text-white">Create Job</h1>
                 <hr>
                 <form action="/jobs/create" method="POST">
                     <div class="mb-3 row flex-row">
                         <div class="col">
                             <div class="row">
                                 <div class="col-6">
-                                    <label for="emailInput" class="form-label">Job title</label>
+                                    <label for="emailInput" class="form-label text-white">Job title</label>
                                     <input type="text" class="form-control" id="emailInput" name="jobTitle" required>
                                     <div class="text-required">Requerido.</div>
                                 </div>
                                 <div class="col-6">
-                                    <label for="emailInput" class="form-label">Company</label>
+                                    <label for="emailInput" class="form-label text-white">Company</label>
                                     <input type="text" step="any" class="form-control" id="emailInput"
                                         name="employerName" required>
                                     <div class="text-required">Requerido.</div>
@@ -22,13 +22,13 @@
                             </div>
                             <div class="row pt-2">
                                 <div class="col-6">
-                                    <label for="emailInput" class="form-label">Location</label>
+                                    <label for="emailInput" class="form-label text-white">Location</label>
                                     <input type="text" step="any" class="form-control" id="emailInput"
                                         name="locationName" required>
                                     <div class="text-required">Requerido.</div>
                                 </div>
                                 <div class="col-6">
-                                    <label for="emailInput" class="form-label">Salary Type:</label>
+                                    <label for="emailInput" class="form-label text-white">Salary Type:</label>
                                     <input type="text" class="form-control" id="emailInput" name="salaryType" required>
                                     <div class="text-required">Requerido.</div>
                                 </div>
@@ -36,7 +36,7 @@
 
                             <div class="row pt-2">
                                 <div class="col-6">
-                                    <label for="emailInput" class="form-label">Minimun Salary</label>
+                                    <label for="emailInput" class="form-label text-white">Minimun Salary</label>
                                     <input type="text" step="any" class="form-control" id="emailInput"
                                         name="minimunSalary" required>
                                     <div class="text-required">Requerido.</div>
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="col-6">
 
-                                    <label for="emailInput" class="form-label">Maximun Salary</label>
+                                    <label for="emailInput" class="form-label text-white">Maximun Salary</label>
                                     <input type="text" step="any" class="form-control" id="emailInput"
                                         name="maximunSalary" required>
                                     <div class="text-required">Requerido.</div>
@@ -53,7 +53,7 @@
                             </div>
                             <div class="row pt-2">
                                 <div class="col-6">
-                                    <label for="emailInput" class="form-label">Currency</label>
+                                    <label for="emailInput" class="form-label text-white">Currency</label>
                                     <select class="form-select" name="currency" required>
                                         <option value="EUR">EUR</option>
                                         <option value="GBP">GBP</option>
@@ -62,7 +62,7 @@
                                     <div class="text-required">Requerido.</div>
                                 </div>
                                 <div class="col-6">
-                                    <label for="emailInput" class="form-label">Contract Type</label>
+                                    <label for="emailInput" class="form-label text-white">Contract Type</label>
                                     <input type="text" class="form-control" id="emailInput" name="contractType"
                                         required>
                                     <div class="text-required">Requerido.</div>
@@ -70,15 +70,15 @@
                             </div>
                             <div class="row pt-2">
                                 <div class="col-6">
-                                    <label for="emailInput" class="form-label">Full Time:</label>
+                                    <label for="emailInput" class="form-label text-white">Full Time:</label>
                                     <select class="form-select" name="fullTime" required>
                                         <option value="true">Yes</option>
                                         <option value="false" selected>No</option>
                                     </select>
                                     <div class="text-required">Requerido.</div>
                                 </div>
-                                <div class="col-6">
-                                    <label for="emailInput" class="form-label">Part Time:</label>
+                                <div class="col-6 mb-3">
+                                    <label for="emailInput" class="form-label text-white">Part Time:</label>
                                     <select class="form-select" name="partTime" required>
                                         <option value="true">Yes</option>
                                         <option value="false" selected>No</option>
@@ -90,7 +90,7 @@
                         <div class="col">
                             <div class="mb-3 row flex-column">
                                 <div class="col">
-                                    <label for="emailInput" class="form-label">Description</label>
+                                    <label for="emailInput" class="form-label text-white">Description</label>
                                     <input type="text" class="form-control" id="emailInput" name="jobDescription"
                                         maxlength="5000" required></input>
                                     <div class="text-required">Requerido.</div>
@@ -98,13 +98,13 @@
                             </div>
                             <div class="mb-3 row flex-column">
                                 <div class="col">
-                                    <label for="emailInput" class="form-label">Offer Link</label>
+                                    <label for="emailInput" class="form-label text-white">Offer Link</label>
                                     <input type="text" class="form-control" id="emailInput" name="jobUrl" required>
-                                    <div class="text-required">Your offer URL.</div>
+                                    <div class="text-required text-white">Your offer URL.</div>
                                 </div>
                             </div>
                             <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-dark block">Create Offer Job</button>
+                                <button type="submit" class="btn btn-primary block">Create Offer Job</button>
                             </div>
                         </div>
                         {{#if errorMessage}}
