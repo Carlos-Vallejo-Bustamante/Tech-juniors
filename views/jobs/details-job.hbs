@@ -18,18 +18,20 @@
             <h3 class="card-text">Description:</h3> {{{jobDescription}}}
             <div class="mt-4">
                 <div class="d-flex flex-row">
-                    <a class="btn btn-primary me-2" href="{{jobUrl}}">Apply Now</a>
                     {{#if navJob}}
                     <form action="/jobs/{{_id}}/edit" method="get">
                         <button class="btn btn-dark me-2" type="submit">Edit job</button>
-                    </form>
-                    <form action="/jobs/{{_id}}/favorite" method="post">
-                        <button class="btn btn-dark me-2" type="submit">Add Favorite</button>
                     </form>
                     <form action="/jobs/{{_id}}/delete" method="post">
                         <button class="btn btn-danger me-2" type="submit">Delete Job</button>
                     </form>
                     {{/if}}
+                    {{#unless navJob}}
+                    <a class="btn btn-primary me-2" href="{{jobUrl}}">Apply Now</a>
+                    <form action="/jobs/{{_id}}/favorite" method="post">
+                        <button class="btn btn-dark me-2" type="submit">Add Favorite</button>
+                    </form>
+                    {{/unless}}
                 </div>
             </div>
         </div>
