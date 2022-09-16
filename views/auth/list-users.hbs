@@ -2,9 +2,9 @@
 
 
 <div class="container py-5">
-    <div class="row text-center text-white">
-        <div class="col-lg-8 mx-auto">
-            <h1 class="display-4 text-white">Tech Profiles</h1>
+    <div class="row text-white">
+        <div class="">
+            <h1 class="pt-5 text-white mt-5"><strong>Tech Profiles</strong></h1>
         </div>
     </div>
 </div>
@@ -12,11 +12,10 @@
 <div class="container">
     <div class="row text-center">
         {{#each listUsers}}
-        <div class="col-xl-3 col-sm-6 mb-5">
+        <div class="col-xl-3 col-sm-6 mb-5 card-animation">
             <div class="bg-white rounded shadow-sm py-5 px-4"><img src="{{avatar}}" width="100"
                     class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                <h5 class="mb-0">{{name}}</h5><span class="small text-uppercase text-muted">CEO -
-                    Founder</span>
+                <h5 class="mb-0">{{name}}</h5><span class="small text-uppercase text-muted">Full Stack Dev</span>
                 <ul class="social mb-0 list-inline mt-3">
                     <li class="list-inline-item"><a href="{{linkedin}}" class="social-link"><i
                                 class="fa-brands fa-linkedin mb-1 h6"></i></a>
@@ -24,7 +23,9 @@
                     <li class="list-inline-item"><a href="{{github}}" class="social-link"><i
                                 class="fa-brands fa-github mb-1 h6"></i></a></li>
                 </ul>
-                <a href="/auth/list-user/{{_id}}">More Details</a>
+                <div class=" pt-2 mt-2 details-user-companyview">
+                    <a href="/auth/list-user/{{_id}}">More Details</a>
+                </div>
             </div>
         </div>
         {{/each}}
