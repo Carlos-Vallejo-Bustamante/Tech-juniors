@@ -2,6 +2,9 @@ const router = require('express').Router();
 const multerMiddleware = require('../middleware/multer.middleware');
 const UserModel = require('../models/User.model');
 const isLogedin = require('../middleware/is_logedin.middleware');
+const { roleValidation } = require('../middleware/roles.middleware');
+const { COMPANY } = require('../const/user.const')
+const { findById } = require('../models/User.model');
 
 //--------- GET -------
 router.get('/signup', (req, res) => {
@@ -30,6 +33,30 @@ router.get('/profile', isLogedin, (req, res) => {
             next(err);
         });
 });
+
+router.get('/list-user', roleValidation(COMPANY), (req, res, next) => {
+    UserModel
+        .find()
+        .then((listUsers) => {
+            res.render('auth/list-users', { listUsers })
+        })
+        .catch((err) => {
+            next(err);
+        });
+})
+
+router.get('/list-user/:jobId', roleValidation(COMPANY), (req, res, next) => {
+    const { jobId } = req.params
+    UserModel
+        .findById(jobId)
+        .then((user) => {
+            res.render('auth/user', user)
+        })
+        .catch((err) => {
+            next(err);
+        });
+})
+
 
 router.get('/edit/:id', (req, res, next) => {
     const { id } = req.params
