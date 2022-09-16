@@ -1,0 +1,87 @@
+<section class="h-100 gradient-custom-2 mb-5">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col mt-5 pt-5">
+                <div class="card">
+                    <div class="rounded-top text-white d-flex flex-row"
+                        style="background-color: #212529; height:250px;">
+                        <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                            <img src="{{avatar}}" class="img-thumbnail mt-4">
+                        </div>
+                        <div class="ms-3" style="margin-top: 100px;">
+                            <h2>{{name}} {{lastname}}</h2>
+                            <p>Username: <strong>{{username}}</strong></p>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <div class="p-4 text-black" style="background-color: #f8f9fa;">
+                        <div class="d-flex justify-content-between text-center py-1">
+                            <div class="">
+                                {{#unless navJob}}
+                                <a href="/auth/edit/{{_id}}" type="button" class="btn btn-outline-dark"
+                                    data-mdb-ripple-color="dark" style="z-index: 1">
+                                    Edit profile
+                                </a>
+                                {{/unless}}
+                            </div>
+                            <div class="d-flex flex-row">
+                                <div class="d-flex flex-column">
+                                    <i class="fa-brands fa-github mb-1 h6"></i>
+                                    <a class="small text-muted mb-0" href="{{github}}">Github</a>
+                                </div>
+                                <div class="px-3 d-flex flex-column">
+                                    <i class="fa-brands fa-linkedin mb-1 h6"></i>
+                                    <a class="small text-muted mb-0" href="{{linkedin}}">LinkedIn</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4 text-black">
+                        <div class="mb-5">
+                            <h3 class="lead fw-normal mb-1">About</h3>
+                            <div class="p-4" style="background-color: #f8f9fa;">
+                                <p class="font-italic mb-1 mt-3">Email: <strong>{{email}}</strong> </p>
+                                <p class="font-italic mb-1 mt-3">Genre: <strong>{{genre}}</strong> </p>
+                                <p class="font-italic mb-0 mt-3">Borndate: <strong>{{borndate}}</strong></p>
+                                <p class="font-italic mb-0 mt-3">User role: <strong>{{role}}</strong></p>
+                            </div>
+
+                            <h3 class="lead fw-normal my-3">My Favorites Jobs</h3>
+                            <div class="row">
+                                {{#each favoritesjobs.favorites}}
+                                <div class="col-md-6 my-3 d-flex justify-content-around">
+                                    <div class="card" style="width: 30rem;">
+                                        {{!-- <img src="images/jobs.jpg" class="card-img-top"> --}}
+                                        <div class="card-body">
+                                            <h2 class="card-title h6"><strong>Tech Profile</strong>: {{jobTitle}}</h2>
+                                            <p class="card-text"><strong>Company</strong>: {{employerName}}</p>
+                                            <p class="card-text"><strong>Location</strong>: {{locationName}}</p>
+                                            <p class="card-text"><strong>Expiration</strong>: {{expirationDate}}</p>
+                                            <div class="row">
+                                                <a href="/jobs/{{_id}}" class="btn btn-dark text-white col-md-6"><i
+                                                        class="fas fa-link"></i>More
+                                                    details</a>
+                                                <form class="col-md-6" action="/auth/profile/{{_id}}" method="post">
+                                                    <button class="btn btn-danger" type="submit">Delete
+                                                        Job</button>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{#unless navJob}}
+        <form action="/auth/{{_id}}/delete" method="POST">
+            <button class="btn btn-danger mt-3 mb-3" type="submit">Delete Student</button>
+        </form>
+        {{/unless}}
+    </div>
+</section>
