@@ -19,16 +19,25 @@
       <a class="navbar-brand ms-3 text-white" href="/"><strong>TECH JR</strong> </a>
       <a class="nav-link text-white" href="/jobs">JOBS</a>
       {{#if navJob }}
-
+      <a class="nav-link text-white" href="/auth/list-user">TECH PROFILES</a>
       <a class="nav-link text-white" href="/jobs/create">CREATE JOB</a>
       {{/if}}
       {{#if nav }}
-      <a class="nav-link text-white" href="/auth/profile">PROFILE</a>
-      <a class="nav-link text-white" href="/auth/logout">LOG OUT</a>
+      <div class="dropdown">
+         <a class="nav-link text-white dropbtn" href="/auth/profile"><img src="/images/login-icon.png" alt=""></a>
+         <div class="dropdown-content">
+            <a class="nav-link text-white" href="/auth/logout">LOG OUT</a>
+         </div>
+      </div>
       {{/if}}
       {{#unless nav }}
-      <a class="nav-link text-white" href="/auth/login">LOG IN</a>
-      <a class="nav-link text-white" href="/auth/signup">SIGN UP</a>
+      <div class="dropdown">
+         <a class="nav-link text-white dropbtn" href="/auth/profile"><img src="/images/login-icon.png" alt=""></a>
+         <div class="dropdown-content">
+            <a class="nav-link text-white" href="/auth/login">LOG IN</a>
+            <a class="nav-link text-white" href="/auth/signup">SIGN UP</a>
+         </div>
+      </div>
       {{/unless}}
 
    </div>

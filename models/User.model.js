@@ -14,7 +14,7 @@ const userSchema = new Schema({
   linkedin: { type: String, default: '' },
   github: { type: String, default: '' },
   role: { type: String, enum: ROLES, default: USER },
-  avatar: { type: String, default: 'https://cdn-icons-png.flaticon.com/512/1946/1946429.png' },
+  avatar: { type: String, default: 'https://res.cloudinary.com/dj8ytkjbs/image/upload/v1663314023/avatar-profile-default_ory00k.png' },
   favorites: [{ type: Schema.Types.ObjectId, ref: 'Job' }],
 },
   {
